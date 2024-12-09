@@ -1,8 +1,8 @@
 /**
  * Node.h
- * 
+ *
  * edited by Ethan Crawford
- * 
+ *
  * g++ (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
  * Copyright (C) 2019 Free Software Foundation, Inc.
  */
@@ -12,31 +12,35 @@
 #include <memory>
 #include <string>
 using namespace std;
+
 /**
- * Node 
+ * Node
  */
 template <typename T>
-class Node {
+class Node
+{
 private:
-    T value;
-    weak_ptr<Node<T>> prev;
-    shared_ptr<Node<T>> next;
+	T value;
+	weak_ptr<Node<T>> prev;
+	shared_ptr<Node<T>> next;
 
 public:
-    Node(T val) : value(val) {}
-    ~Node() {
-        cout << "Deleting node with value " << value << endl;
-    }
+	Node(T val) : value(val) {}
+	~Node()
+	{
+		cout << "Deleting node with value " << value << endl;
+	}
 
-    T getValue() const { return value; }
-    void setValue(T val) { value = val; }
+	T getValue() const { return value; }
+	void setValue(T val) { value = val; }
 
-    shared_ptr<Node<T>> getNext() const { return next; }
-    weak_ptr<Node<T>> getPrevious() const { return prev; }
+	shared_ptr<Node<T>> getNext() const { return next; }
+	weak_ptr<Node<T>> getPrevious() const { return prev; }
 
-    void setNext(shared_ptr<Node<T>> nextPtr) { next = nextPtr; }
-    void setPrevious(shared_ptr<Node<T>> previousPtr) { prev = previousPtr; }
+	void setNext(shared_ptr<Node<T>> nextPtr) { next = nextPtr; }
+	void setPrevious(shared_ptr<Node<T>> previousPtr) { prev = previousPtr; }
 };
+
 /**
  * Explicit instantiation for common types (if required)
  */
